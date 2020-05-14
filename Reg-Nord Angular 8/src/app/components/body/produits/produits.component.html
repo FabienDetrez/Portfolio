@@ -1,0 +1,54 @@
+<div id="fond">
+
+    <div class="titre">
+        <h1></h1>
+    </div>
+    <form class="organisationchekbox" #filtreForm="ngForm">
+        <div class="checkbox" *ngFor="let categorie of categories, let i = index">
+            <label><input type="checkbox" name="{{categorie.designation}}" (change)="filtrer(filtreForm)" ngModel>{{categorie.designation}}</label>
+        </div>
+    </form>
+    <hr>
+    <div id="structure">
+        <div class="produitscard" *ngFor="let produit of produits">
+            <button type="button" class="btn" data-toggle="modal" attr.data-target="#{{produit.id}}">
+                <div class="card">
+                    <div><img [src]="basePath + produit.photo" class="img-fluid" alt="..."></div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{produit.titrecard}}</h5>
+                        <p class="card-text"></p>
+                        <!--<a [href]="basePath + produit.doctechn" class="btn"><span class="fa fa-download"
+                                style="text-align: center;" aria-hidden="true"></span></a>-->
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+    <!--Modal-->
+    <div class="modal fade" *ngFor="let produit of produits" [id]="produit.id" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>{{produit.titrecard}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="element">
+                        <img [src]="basePath + produit.photo" class="img" alt="...">
+                    </div>
+
+                    <div class="element">
+
+                        <p>{{produit.descriptif}}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a [href]="basePath + produit.doctechn" class="btn"><span class="fa fa-download"
+                            style="text-align: center;" aria-hidden="true"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>

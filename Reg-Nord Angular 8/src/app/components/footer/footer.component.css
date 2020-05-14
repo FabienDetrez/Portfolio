@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    background-color: #E9F2F1;
+    margin-top: 10px;
+}
+
+p{
+    text-align: center;
+}

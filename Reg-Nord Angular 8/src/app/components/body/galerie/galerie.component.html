@@ -1,0 +1,13 @@
+<div id="fond">
+    <div class="container">
+        <div class="row" id="structure">
+            <div class="card" *ngFor="let image of images">
+                <div><img [src]="basePath + image.photo" class="img-fluid" alt="..."></div>
+                <div class="card-body">
+                    <p class="card-text">{{image.titre}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

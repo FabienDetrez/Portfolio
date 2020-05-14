@@ -1,0 +1,97 @@
+<div id="fond" class="sticky-top">
+    <div id="en-tête">
+        <div class="h1">REG-NORD</div>
+        <div><button type="button" class="btn" data-toggle="modal" data-target="#LoginModal" id="connexion">
+                Se connecter
+            </button>
+        </div>
+    </div>
+
+    <div class="h5">Spécialiste mesure et régulation</div>
+
+
+
+    <div id="navbar">
+        <div>
+            <button (click)="redirectionacc()">
+                <img src="../../../assets/Images/Reg-Nord/Logo_Reg-Nord.jpg">
+            </button>
+        </div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="nav-item dropdown" *ngFor="let compo of compoNavbar">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{compo.designation}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" *ngFor="let lien of compo.liens" [routerLink]="compo.url"
+                                [queryParams]="lien.param">{{lien.designation}}</a>
+
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" [routerLink]="urlgal">Galerie</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">Administrateur</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="recherche">
+            <input class="form-control" type="search" placeholder="Mots Clés..." aria-label="Search"><button
+                class="fa fa-search" aria-hidden="true"></button>
+        </div>
+
+
+    </div>
+</div>
+
+<!--<button class="btn btn-primary" (click)="redirection()">mefjbgrozbfjb</button>-->
+
+
+<!--Login-->
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalconnection">Mon compte</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="mx-auto border p-3 bg-secondery rounded shadow">
+                        <form method="POST">
+                            <div class="form-group">
+
+                                <input type="text" class="form-control" id="nomUtilisateur"
+                                    placeholder="Nom d'utilisateur">
+                            </div>
+                            <div class="form-group">
+
+                                <input type="password" class="form-control" id="motDePasse" placeholder="Mote de passe">
+                            </div>
+                            <a href="" class="btn btn-primary w-100">Se connecter</a>
+                            <small id="Oublie" class="form-text text-muted">Mot de passe oublié</small>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

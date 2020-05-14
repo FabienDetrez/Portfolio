@@ -1,0 +1,121 @@
+<div id="fond">
+    <div id="carouselAcc" class="carousel slide" data-ride="carousel">
+
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card mb-3" *ngFor="let image of carousel1Images">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img [src]="basePathCarousel + image.name" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">{{image.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="carousel-item" *ngFor="let image of carouselImages">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img [src]="basePathCarousel + image.name" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">{{image.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#carouselAcc" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselAcc" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+
+        <!--Marquee-->
+        <div class="slider-marque">
+            <div class="slider-wrapper">
+                <div class="slides-marque">
+                    <a *ngFor="let image of images" [routerLink]="image.link" [queryParams]="image.param">
+                        <img class="img-fluid" [src]="basePathMarquee + image.name" alt="">
+                    </a>
+                </div>
+
+                <div class="slides-marque">
+                    <a *ngFor="let image of images" [routerLink]="image.link" [queryParams]="image.param">
+                        <img class="img-fluid" [src]="basePathMarquee + image.name" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container" id="PrésentationEntreprise">
+            <div class="card bg-light mb-3" id="entreprise1">
+                <div class="card-body">
+                    <p class="card-text">
+                        <em>Nous mettons à votre disposition des documents
+                            vous permettant d'optimiser vos installations.
+                            <br>
+                            Notre métier est de répondre à vos besoins pour cela
+                            nous distribuons les plus grandes marques telles que :
+                            <li>ABB</li>
+                            <li>CD Automation</li>
+                            <li>Metso</li>
+                            <li>West</li>
+                            <li>Flow-mon</li>
+                            <br>
+                            Depuis 1984, REG-NORD est spécialiste de la fourniture d'appareils
+                            de régulation et d'instrumentation industrielles au service des professionnels.
+                            <br>
+                            Située à Douai (France - Nord), REG-NORD répond aux besoins
+                            des industries, centres de formation et collectivités.
+                            <br>
+                            REG-NORD met à votre disposition toutes l'expérience et la connaissance
+                            de son personnel pour répondre au mieux à vos besoins.
+                        </em>
+                    </p>
+                </div>
+            </div>
+            <div class="card bg-light mb-3" id="entreprise2">
+                <div class="card-body">
+                    <p class="card-text">
+                        <em>Fort de son expérience et de son professionnalisme,
+                        REG-NORD vous accompagne pour les études de vos systèmes
+                        d'Instrumentations et de Régulation.
+                        <br>
+                        Nos compétences sont basées sur le partage des connaissances
+                        et l'expérience de nos techniciens et ingénieurs.
+                        <br>
+                        Nous avons acquis, en travaillant avec les plus grands groupes français et internationaux, des
+                        compétences
+                        reconnues dans les domaines suivants:
+                        <li>Agroalimentaire</li>
+                        <li>Traitement de l'Eau</li>
+                        <li>Métallurgie</li>
+                        <li>Plasturgie</li>
+                        <li>Autmobile</li>
+                        <li>Chimie</li>
+                        <li>Cosmétique</li>
+                        <li>Energie</li>
+                    </em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

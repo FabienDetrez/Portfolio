@@ -1,0 +1,54 @@
+#en-tête {
+    display: flex;
+    justify-content: space-between;
+    color: #0F2056;
+
+}
+
+.btn {
+    background-color: #72B2E4;
+    color: #0F2056;
+}
+
+#navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form-control {
+    width: 100%;
+    min-width: 150px;
+}
+
+#recherche {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+#connexion {
+    margin-top: 10px;
+    box-shadow: 2px 5px 7px #000;
+}
+
+.modal-header {
+    background-color: #72B2E4;
+}
+
+#fond {
+    background-color: #2B5F8C;
+    padding: 10px;
+    box-shadow: 2px 5px 7px #000;
+    
+}
+
+#navbarDropdown {
+    color: #0F2056;
+}
+
+.nav-link {
+    color: #0F2056;
+}
+
