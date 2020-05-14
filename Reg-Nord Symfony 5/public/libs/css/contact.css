@@ -1,0 +1,13 @@
+.icone{
+    color: #5DB2EC;
+}
+
+#groupIcon{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.map{
+    text-align: center;
+}

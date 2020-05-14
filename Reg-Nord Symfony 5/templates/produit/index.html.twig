@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index
+{% endblock %}
+
+{% block stylesheets %}
+
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+
+	<div class="titre">
+		<h1>Produit</h1>
+	</div>
+	<div class="card card-body">
+		{{ form_start(form) }}
+		{{ form_row(form.nom) }}
+		{{ form_row(form.marques) }}
+		{{ form_row(form.gammes) }}		
+		
+		<div class="envoyer">
+			<button class="btn btn-primary">Rechercher</button>
+		</div>
+		{{ form_end(form) }}
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Reference</th>
+					<th>Descriptif</th>
+					<th>Statut</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for produit in produits %}
+					<tr>
+						<td>{{ produit.nom }}</td>
+						<td>{{ produit.reference }}</td>
+						<td>{{ produit.descriptif }}</td>
+						<td>{{ produit.statut ? 'Oui' : 'Non' }}</td>
+						<td>
+							<a href="{{ path('produit_show', {'id': produit.id}) }}" class="btn btn-primary">+ de détails</a>
+							<a href="{{ path('produit_edit', {'id': produit.id}) }}" class="btn btn-warning">Modifier</a>
+							{{ include('admin/produit/_delete_form.html.twig') }}
+
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="13">pas de produit trouvé</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="bouton">
+			<a href="{{ path('produit_new') }}" class="btn btn-primary">Nouveau</a>
+		</div>
+	{% endblock %}

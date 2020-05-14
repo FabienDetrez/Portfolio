@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle marque
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="titre"><h1>Création de nouvelle marque</h1></div>
+
+		{{ include('admin/marque/_form.html.twig') }}
+
+		<a href="{{ path('marque_index') }}" class="btn btn-secondary mt-1">Retour</a>
+	</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset("libs/css/email.css") }}">
+			<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+		{% endblock %}
+	</head>
+
+	<body>
+
+		<div class="titre">
+			<h1>{{ ( entreprise ) }}</h1>
+			<h2>{{ ( nom )  }}
+				{{ ( prenom )}}</h2>
+			<h5>{{ (telephone )}}
+			</div>
+			<p>{{ ( sujet ) }}</p>
+			<p>{{ ( message ) }}</p>
+		</body>
+	</body>
+</html>

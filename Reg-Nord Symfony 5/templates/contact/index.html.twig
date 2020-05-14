@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez nous
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/contact.css") }}">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+	<div class="container mt-2">
+		<div id="groupIcon">
+			<div>
+				<i class="fa fa-phone fa-5x icone" aria-hidden="true"></i>
+			</div>
+			<div>
+				<i class="fa fa-envelope fa-5x icone" aria-hidden="true"></i>
+			</div>
+			<div>
+				<i class="fa fa-map-marker fa-5x icone" aria-hidden="true"></i>
+			</div>
+			<div>
+				<i class="fa fa-fax fa-5x icone" aria-hidden="true"></i>
+			</div>
+		</div>
+
+		<div class="titre">
+			<h1>Contactez-nous</h1>
+			<p>Nous sommes ouverts du Lundi au Vendredi, de 9h à 12h30 et de 14h à 17h30</p>
+			<div>
+				<i class="fa fa-phone fa-1x icone" aria-hidden="true"></i>
+				03.27.88.33.41</div>
+			<div>
+				<i class="fa fa-envelope fa-1x icone" aria-hidden="true"></i>
+				contact@reg-nord.com</div>
+			<div>
+				<i class="fa fa-map-marker fa-1x icone" aria-hidden="true"></i>
+				340 avenue du 4 septembre, 59000 Douai</div>
+			<div>
+				<i class="fa fa-fax fa-1x icone" aria-hidden="true"></i>
+				03.00.00.00.00</div>
+			<h2>Envoyez-nous votre demande</h2>
+		</div>
+
+		{{ form_start(form) }}
+		{{ form_row(form.nom) }}
+		{{ form_row(form.prenom) }}
+		{{ form_row(form.entreprise) }}
+		{{ form_row(form.email) }}
+		{{ form_row(form.telephone) }}
+		{{ form_row(form.sujet) }}
+		{{ form_row(form.message) }}
+
+		<div class="envoyer bouton">
+			<button class="btn btn-primary mb-2">Envoyer</button>
+		</div>
+		{{ form_end(form) }}
+	</div>
+	<div class="container-fluid p-0 map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2545.1996234702856!2d3.084551716037428!3d50.36283207946341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2c96e98cfce15%3A0x22343e6cdb2b0573!2sReg%20Nord!5e0!3m2!1sfr!2sfr!4v1587677685397!5m2!1sfr!2sfr" width="1800" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+	</div>
+{% endblock %}

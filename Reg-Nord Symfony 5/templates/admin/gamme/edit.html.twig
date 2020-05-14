@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de gamme
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+	<div class="titre">
+		<h1>Modification de gamme</h1>
+	</div>
+
+	{{ include('admin/gamme/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+	{{ include('admin/gamme/_delete_form.html.twig') }}
+
+	<a href="{{ path('gamme_index') }}" class="btn btn-secondary">Retour</a>
+
+
+{% endblock %}

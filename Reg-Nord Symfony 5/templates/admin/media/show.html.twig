@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Media{% endblock %}
+
+{% block body %}
+    <h1>Media</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ medium.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ medium.description }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ medium.texte }}</td>
+            </tr>
+            <tr>
+                <th>Carousel</th>
+                <td>{{ medium.carousel ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Marquee</th>
+                <td>{{ medium.marquee ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ medium.produit ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ medium.statut ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Gallerie</th>
+                <td>{{ medium.gallerie ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+   
+
+    <a href="{{ path('media_edit', {'id': medium.id}) }}" class="btn btn-warning">Modifier</a>
+
+    {{ include('admin/media/_delete_form.html.twig') }} 
+    
+    <a href="{{ path('media_index') }}" class="btn btn-secondary">Retour</a>
+{% endblock %}

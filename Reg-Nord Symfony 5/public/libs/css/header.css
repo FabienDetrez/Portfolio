@@ -1,0 +1,71 @@
+#header{
+  background-image: url(../img/Logo/chem2-1040x400.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#logo{
+  width: 60%;
+}
+
+.connexion{
+  text-align: right;
+}
+
+.navbar{
+  border-style: none;
+}
+
+.btn-primary {
+    background-color: #082257;
+    border-color: #082257;
+  }
+  
+  .btn-primary:hover {
+    background-color: #082257;
+    border-color: #082257;
+  }
+  
+  .btn-primary:focus, .btn-primary.focus {
+    background-color: #26A4EB;
+    border-color: #26A4EB;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.5);
+  }
+  
+  .btn-primary.disabled, .btn-primary:disabled {
+    background-color: #082257;
+    border-color: #082257;
+  }
+  
+  .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+  .show > .btn-primary.dropdown-toggle {
+    background-color: #26A4EB;
+    border-color: #26A4EB;
+  }
+  
+  .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-primary.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.5);
+  }
+
+.h1{
+  text-align: center;
+  color: #ffffff;
+}
+
+.h5{
+  text-align: center;
+  color: #ffffff;
+}
+
+#navbar{
+  display: flex;
+  justify-content: center;
+}
+
+.img{
+  width: 2000px;
+  height: 2000px;
+}

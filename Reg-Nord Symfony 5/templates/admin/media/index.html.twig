@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Photo
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+	
+	<div class="titre"><h1>Photo</h1></div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Texte</th>
+				<th>Carousel</th>
+				<th>Marquee</th>
+				<th>Produit</th>
+				<th>Statut</th>
+				<th>Gallerie</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for medium in media %}
+				<tr>
+					<td>{{ medium.nom }}</td>
+					<td>{{ medium.description }}</td>
+					<td>{{ medium.texte }}</td>
+					<td>{{ medium.carousel ? 'Oui' : 'Non' }}</td>
+					<td>{{ medium.marquee ? 'Oui' : 'Non' }}</td>
+					<td>{{ medium.produit ? 'Oui' : 'Non' }}</td>
+					<td>{{ medium.statut ? 'Oui' : 'Non' }}</td>
+					<td>{{ medium.gallerie ? 'Oui' : 'Non' }}</td>
+					<td>
+						<a href="{{ path('media_show', {'id': medium.id}) }}" class="btn btn-primary">+ de détails</a>
+						<a href="{{ path('media_edit', {'id': medium.id}) }}" class="btn btn-warning">Modifier</a>
+						{{ include('admin/media/_delete_form.html.twig') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="10">pas de photo trouvée</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="bouton"><a href="{{ path('media_new') }}" class="btn btn-primary">Nouveau</a></div>
+	
+{% endblock %}

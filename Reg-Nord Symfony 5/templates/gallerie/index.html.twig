@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réalisations
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/galerie.css") }}">
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		
+			<div class="titre">
+				<h2>Nos réalisations</h2>
+			</div>
+<div class="row titre">
+
+			<section id="pinBoot">
+
+				{% for media in medias %}
+					{% if media.gallerie == 1 and media.statut == 1 %}
+
+						<article class="white-panel"><img class="img" src="{{ vich_uploader_asset(media,'imageFile') }}" alt="{{ media.description }}">
+							<h4>{{ media.nom }}</h4>
+							<p>{{ media.texte }}</p>
+						</article>
+					{% endif %}
+				{% endfor %}
+
+			</section>
+
+
+			<hr>
+
+
+		</div>
+	</div>
+
+{% endblock %}
+{% block javascripts %}
+	<script src="{{ asset("libs/js/galerie.js") }}"></script>
+{% endblock %}

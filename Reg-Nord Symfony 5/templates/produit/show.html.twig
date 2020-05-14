@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit
+{% endblock %}
+
+{% block body %}
+	<h1>Produit</h1>
+	
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Nom</th>
+					<td>{{ produit.nom }}</td>
+				</tr>
+				<tr>
+					<th>Reference</th>
+					<td>{{ produit.reference }}</td>
+				</tr>
+				<tr>
+					<th>Descriptif</th>
+					<td>{{ produit.descriptif }}</td>
+				</tr>
+				<tr>
+					<th>Construction</th>
+					<td>{{ produit.construction }}</td>
+				</tr>
+				<tr>
+					<th>Taille</th>
+					<td>{{ produit.taille }}</td>
+				</tr>
+				<tr>
+					<th>ClasseDePression</th>
+					<td>{{ produit.classeDePression }}</td>
+				</tr>
+				<tr>
+					<th>PlageDeTemperature</th>
+					<td>{{ produit.plageDeTemperature }}</td>
+				</tr>
+				<tr>
+					<th>Materiau</th>
+					<td>{{ produit.materiau }}</td>
+				</tr>
+				<tr>
+					<th>TauxDeFuite</th>
+					<td>{{ produit.tauxDeFuite }}</td>
+				</tr>
+				<tr>
+					<th>Specification</th>
+					<td>{{ produit.specification }}</td>
+				</tr>
+				<tr>
+					<th>Statut</th>
+					<td>{{ produit.statut ? 'Oui' : 'Non' }}</td>
+				</tr>
+			</tbody>
+		</table>
+	
+
+	<a href="javascript:history.go(-1)" class="btn btn-secondary">Retour</a>
+
+
+	{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{ path('produit_edit', {'id': produit.id}) }}" class="btn btn-primary">Modifier</a>
+
+		{{ include('admin/produit/_delete_form.html.twig') }}
+	{% endif %}
+{% endblock %}

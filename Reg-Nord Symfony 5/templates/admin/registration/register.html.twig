@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrer un administrateur
+{% endblock %}
+
+{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+			<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+            <link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+		{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="titre">
+			<h1>Enregistrer un administrateur</h1>
+		</div>
+
+		{{ form_start(registrationForm) }}
+		{{ form_row(registrationForm.email) }}
+		{{ form_row(registrationForm.plainPassword) }}
+		{{ form_row(registrationForm.agreeTerms) }}
+
+		<div class="bouton">
+			<button class="btn btn-primary">Enregistrer un administrateur</button>
+		</div>
+		{{ form_end(registrationForm) }}
+	</div>
+{% endblock %}

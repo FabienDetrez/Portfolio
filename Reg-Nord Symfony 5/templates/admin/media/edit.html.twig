@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Media
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Modification de photo</h1>
+
+		{{ include('admin/media/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+		<a href="{{ path('media_index') }}" class="btn btn-secondary">Retour</a>
+
+		{{ include('admin/media/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

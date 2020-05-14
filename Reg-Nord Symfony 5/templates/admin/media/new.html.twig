@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle photo
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="titre">
+			<h1>Nouvelle photo</h1>
+		</div>
+
+		{{ include('admin/media/_form.html.twig') }}
+
+		<a href="{{ path('media_index') }}" class="btn btn-secondary mt-1">Retour</a>
+	</div>
+{% endblock %}

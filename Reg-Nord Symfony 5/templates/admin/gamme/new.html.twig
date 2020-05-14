@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle gamme
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="titre">
+		<h1>Création d'une nouvelle gamme</h1>
+	</div>
+	{{ include('admin/gamme/_form.html.twig') }}
+	
+		<a href="{{ path('gamme_index') }}" class="btn btn-secondary mt-2">Retour</a>
+	
+</div>
+{% endblock %}

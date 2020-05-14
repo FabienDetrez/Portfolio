@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reg-Nord
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/home.css") }}">
+
+{% endblock %}
+
+
+{% block body %}
+
+
+	<div id="carouselExampleFade" class="carousel slide carousel-fade mt-2" data-ride="carousel">
+		<div class="carousel-inner">
+			{%  set show = 0 %}
+			{% for media in medias %}
+				{% if media.carousel and media.statut == 1 %}
+
+					<div class="carousel-item {% if show == 0 %}{% set show = 1 %} active {% endif %}">
+						<div><img class="d-block carImg" src="{{ vich_uploader_asset(media, 'imageFile') }}" alt="First slide"></div>
+					</div>
+				{% endif %}
+			{% endfor %}
+
+			<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
+		<hr>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-6">
+					<div class="titre">
+						<h2>Notre savoir faire</h2>
+					</div>
+
+					<section class="iq-features">
+
+
+						<div class="col-12">
+							<div class="holderCircle">
+								<div class="round"></div>
+								<div class="dotCircle">
+									<span class="itemDot active itemDot1" data-tab="1">
+										<i class="fa fa-commenting-o"></i>
+										<span class="forActive"></span>
+									</span>
+									<span class="itemDot itemDot2" data-tab="2">
+										<i class="fa fa-industry"></i>
+										<span class="forActive"></span>
+									</span>
+									<span class="itemDot itemDot3" data-tab="3">
+										<i class="fa fa-handshake-o"></i>
+										<span class="forActive"></span>
+									</span>
+									<span class="itemDot itemDot4" data-tab="4">
+										<i class="fa fa-cogs"></i>
+										<span class="forActive"></span>
+									</span>
+									<span class="itemDot itemDot5" data-tab="5">
+										<i class="fa fa-linode"></i>
+										<span class="forActive"></span>
+									</span>
+								</div>
+								<div class="contentCircle">
+									<div class="CirItem title-box active CirItem1">
+										<h2 class="title">
+											<span>Conseil</span>
+										</h2>
+										<p>A l'écoute de vos problématiques</p>
+										<i class="fa fa-commenting-o"></i>
+									</div>
+									<div class="CirItem title-box CirItem2">
+										<h2 class="title">
+											<span>Vente</span>
+										</h2>
+										<p>Large gamme couvrant la Régulation / Mesure / Vanne de régulation</p>
+										<i class="fa fa-industry"></i>
+									</div>
+									<div class="CirItem title-box CirItem3">
+										<h2 class="title">
+											<span>Service</span>
+										</h2>
+										<p>Suivi de vos équipements</p>
+										<i class="fa fa-handshake-o"></i>
+									</div>
+									<div class="CirItem title-box CirItem4">
+										<h2 class="title">
+											<span>Dépannage</span>
+										</h2>
+										<p>Assistance Technique de notre fourniture</p>
+										<i class="fa fa-cogs"></i>
+									</div>
+									<div class="CirItem title-box CirItem5">
+										<h2 class="title">
+											<span>Stock</span>
+										</h2>
+										<p>Réactivité et disponibilité</p>
+										<i class="fa fa-linode"></i>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-lg-3 col-md-12"></div>
+						</div>
+					</section>
+				</div>
+
+
+				<div class="col-6">
+					<div class="titre">
+						<h2>Notre offre produit</h2>
+					</div>
+					<section class="services-area pt-100 pb-70" id="services">
+
+
+						<div class="row">
+							{% for gamme in gammes %}
+								{% if gamme.statut == 1 %}
+									<div class="col-lg-4 col-md-6">
+										<a href="{{ path('gamme_index', {'id':gamme.id}) }}">
+											<div class="single-service">
+												<i class="{{ gamme.logo }}"></i>
+												<h4>{{ gamme.nom }}</h4>
+												<p></p>
+											</div>
+										</a>
+									</div>
+
+								{% endif %}
+							{% endfor %}
+						</div>
+
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block javascripts %}
+	<script src="{{ asset("libs/js/home.js") }}"></script>
+{% endblock %}

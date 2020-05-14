@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de marque
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="titre">
+			<h1>Modification de marque</h1>
+		</div>
+
+		{{ include('admin/marque/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+		{{ include('admin/marque/_delete_form.html.twig') }}
+
+		<a href="{{ path('marque_index') }}" class="btn btn-secondary">Retour</a>
+	</div>
+
+{% endblock %}

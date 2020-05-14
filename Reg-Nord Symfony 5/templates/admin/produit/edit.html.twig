@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification produit
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset("libs/css/bootstrap.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/header.css") }}">
+	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="titre">
+			<h1>Modification produit</h1>
+		</div>
+
+		{{ include('admin/produit/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+		{{ include('admin/produit/_delete_form.html.twig') }}
+
+		<a href="{{ path('produit_index') }}" class="btn btn-secondary">Retour</a>
+
+
+	</div>
+{% endblock %}
