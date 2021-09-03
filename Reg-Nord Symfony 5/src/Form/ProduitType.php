@@ -19,10 +19,17 @@ class ProduitType extends AbstractType
             ->add('nom')
             ->add('reference')
             ->add('descriptif')
-            ->add('application')
+            ->add('construction')
+            ->add('taille')
+            ->add('classeDePression')
+            ->add('plageDeTemperature')
+            ->add('materiau')
+            ->add('tauxDeFuite')
+            ->add('specification')
+            ->add('statut')
             ->add('media', EntityType::class, array(
                 'class' => Media::class,
-                'required' => false,
+                'required' => true,
                 'label' => 'Medias',
                 'choice_label' => 'nom',
                 'multiple' => false))
@@ -38,7 +45,6 @@ class ProduitType extends AbstractType
                 'label' => 'Gammes',
                 'choice_label' => 'nom',
                 'multiple' => false))
-                ->add('statut')
         ;
     }
 

@@ -13,11 +13,9 @@
 
 
 		<div class="titre">
+			
+			<img src="{{ vich_uploader_asset(marque.media,'imageFile') }}">
 
-			{% if marque.media %}
-
-				<img src="{{ vich_uploader_asset(marque.media,'imageFile') }}">
-			{% endif %}
 			<p>{{ marque.description }}</p>
 		</div>
 		<hr>
@@ -58,7 +56,7 @@
 						<td>{{ marque.description }}</td>
 						{% if is_granted('ROLE_ADMIN') %}
 							<td>
-								<a href="{{ path('marque_show', {'id': marque.id}) }}" class="btn btn-primary mb-1">+ de détails</a>
+								<a href="{{ path('marque_show', {'id': marque.id}) }}" class="btn btn-primary">+ de détails</a>
 								<a href="{{ path('marque_edit', {'id': marque.id}) }}" class="btn btn-warning">Modifier</a>
 								{{ include('admin/marque/_delete_form.html.twig') }}
 							</td>
@@ -77,9 +75,9 @@
 			</tbody>
 		</table>
 		{% if is_granted('ROLE_ADMIN') %}
-			<div class="bouton">
-				<a href="{{ path('marque_new') }}" class="btn btn-primary">Nouveau</a>
-			</div>
+		<div class="bouton">
+			<a href="{{ path('marque_new') }}" class="btn btn-primary">Nouveau</a>
+		</div>
 		{% endif %}
 	{% endif %}
 {% endblock %}

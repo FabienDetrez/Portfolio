@@ -22,7 +22,6 @@ class MarqueController extends AbstractController
     public function index(MarqueRepository $marqueRepository, ProduitRepository $produitRepository, Request $request): Response
     {
         $marqueId = $request->query->get('id');
-        
         $produits = $produitRepository->findBy(['marques'=>$marqueId]);
         
         if ($marqueId && is_numeric($marqueId)) {
@@ -72,7 +71,6 @@ class MarqueController extends AbstractController
      */
     public function show(Marque $marque): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('admin/marque/show.html.twig', [
             'marque' => $marque,
         ]);

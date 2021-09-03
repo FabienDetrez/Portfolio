@@ -63,7 +63,7 @@ class ContactController extends AbstractController
 
 
 
-            return $this->redirectToRoute('home');
+            //return $this->redirectToRoute('home');
         }
 
 

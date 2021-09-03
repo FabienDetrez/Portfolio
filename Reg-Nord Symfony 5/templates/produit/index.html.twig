@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block stylesheets %}
-
+	
 	<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
 {% endblock %}
 
@@ -13,49 +13,54 @@
 	<div class="titre">
 		<h1>Produit</h1>
 	</div>
-	<div class="card card-body">
-		{{ form_start(form) }}
-		{{ form_row(form.nom) }}
-		{{ form_row(form.marques) }}
-		{{ form_row(form.gammes) }}		
-		
-		<div class="envoyer">
-			<button class="btn btn-primary">Rechercher</button>
-		</div>
-		{{ form_end(form) }}
-		<table class="table">
-			<thead>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Reference</th>
+				<th>Descriptif</th>
+				<th>Construction</th>
+				<th>Taille</th>
+				<th>ClasseDePression</th>
+				<th>PlageDeTemperature</th>
+				<th>Materiau</th>
+				<th>TauxDeFuite</th>
+				<th>Specification</th>
+				<th>Statut</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for produit in produits %}
 				<tr>
-					<th>Nom</th>
-					<th>Reference</th>
-					<th>Descriptif</th>
-					<th>Statut</th>
-					<th>actions</th>
+					<td>{{ produit.nom }}</td>
+					<td>{{ produit.reference }}</td>
+					<td>{{ produit.descriptif }}</td>
+					<td>{{ produit.construction }}</td>
+					<td>{{ produit.taille }}</td>
+					<td>{{ produit.classeDePression }}</td>
+					<td>{{ produit.plageDeTemperature }}</td>
+					<td>{{ produit.materiau }}</td>
+					<td>{{ produit.tauxDeFuite }}</td>
+					<td>{{ produit.specification }}</td>
+					<td>{{ produit.statut ? 'Oui' : 'Non' }}</td>
+					<td>
+						<a href="{{ path('produit_show', {'id': produit.id}) }}" class="btn btn-primary">+ de détails</a>
+						<a href="{{ path('produit_edit', {'id': produit.id}) }}" class="btn btn-warning">Modifier</a>
+						{{ include('admin/produit/_delete_form.html.twig') }}
+
+					</td>
 				</tr>
-			</thead>
-			<tbody>
-				{% for produit in produits %}
-					<tr>
-						<td>{{ produit.nom }}</td>
-						<td>{{ produit.reference }}</td>
-						<td>{{ produit.descriptif }}</td>
-						<td>{{ produit.statut ? 'Oui' : 'Non' }}</td>
-						<td>
-							<a href="{{ path('produit_show', {'id': produit.id}) }}" class="btn btn-primary">+ de détails</a>
-							<a href="{{ path('produit_edit', {'id': produit.id}) }}" class="btn btn-warning">Modifier</a>
-							{{ include('admin/produit/_delete_form.html.twig') }}
+			{% else %}
+				<tr>
+					<td colspan="13">pas de produit trouvé</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="13">pas de produit trouvé</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-
-		<div class="bouton">
-			<a href="{{ path('produit_new') }}" class="btn btn-primary">Nouveau</a>
-		</div>
-	{% endblock %}
+	<div class="bouton">
+		<a href="{{ path('produit_new') }}" class="btn btn-primary">Nouveau</a>
+	</div>
+{% endblock %}

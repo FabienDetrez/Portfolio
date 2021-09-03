@@ -32,6 +32,41 @@ class Produit
     private $descriptif;
 
     /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $construction;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $taille;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $classeDePression;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $plageDeTemperature;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $materiau;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $tauxDeFuite;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $specification;
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $statut;
@@ -50,16 +85,6 @@ class Produit
      * @ORM\ManyToOne(targetEntity="App\Entity\Gamme", inversedBy="produits")
      */
     private $gammes;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $application;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $autre;
 
     public function getId(): ?int
     {
@@ -98,6 +123,90 @@ class Produit
     public function setDescriptif(string $descriptif): self
     {
         $this->descriptif = $descriptif;
+
+        return $this;
+    }
+
+    public function getConstruction(): ?string
+    {
+        return $this->construction;
+    }
+
+    public function setConstruction(?string $construction): self
+    {
+        $this->construction = $construction;
+
+        return $this;
+    }
+
+    public function getTaille(): ?string
+    {
+        return $this->taille;
+    }
+
+    public function setTaille(?string $taille): self
+    {
+        $this->taille = $taille;
+
+        return $this;
+    }
+
+    public function getClasseDePression(): ?string
+    {
+        return $this->classeDePression;
+    }
+
+    public function setClasseDePression(?string $classeDePression): self
+    {
+        $this->classeDePression = $classeDePression;
+
+        return $this;
+    }
+
+    public function getPlageDeTemperature(): ?string
+    {
+        return $this->plageDeTemperature;
+    }
+
+    public function setPlageDeTemperature(?string $plageDeTemperature): self
+    {
+        $this->plageDeTemperature = $plageDeTemperature;
+
+        return $this;
+    }
+
+    public function getMateriau(): ?string
+    {
+        return $this->materiau;
+    }
+
+    public function setMateriau(?string $materiau): self
+    {
+        $this->materiau = $materiau;
+
+        return $this;
+    }
+
+    public function getTauxDeFuite(): ?string
+    {
+        return $this->tauxDeFuite;
+    }
+
+    public function setTauxDeFuite(?string $tauxDeFuite): self
+    {
+        $this->tauxDeFuite = $tauxDeFuite;
+
+        return $this;
+    }
+
+    public function getSpecification(): ?string
+    {
+        return $this->specification;
+    }
+
+    public function setSpecification(?string $specification): self
+    {
+        $this->specification = $specification;
 
         return $this;
     }
@@ -152,30 +261,6 @@ class Produit
     public function setGammes(?Gamme $gammes): self
     {
         $this->gammes = $gammes;
-
-        return $this;
-    }
-
-    public function getApplication(): ?string
-    {
-        return $this->application;
-    }
-
-    public function setApplication(?string $application): self
-    {
-        $this->application = $application;
-
-        return $this;
-    }
-
-    public function getAutre(): ?string
-    {
-        return $this->autre;
-    }
-
-    public function setAutre(?string $autre): self
-    {
-        $this->autre = $autre;
 
         return $this;
     }

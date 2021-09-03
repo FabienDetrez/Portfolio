@@ -1,7 +1,7 @@
 <div id="footer">
 	<div class="slider-marque">
 		<div class="slider-wrapper">
-
+        
 			<div class="slides-marque">
 
 				{% for media in medias %}
@@ -22,7 +22,17 @@
 
 			</div>
 
-			<div class="slides-marque">
+            <div class="slides-marque">
+
+				{% for media in medias %}
+				{% if media.marquee == 1 and media.statut == 1 %}
+						<img src="{{ vich_uploader_asset(media,'imageFile') }}" class="img-fluid" alt="">
+					{% endif %}
+				{% endfor %}
+
+			</div>
+
+            <div class="slides-marque">
 
 				{% for media in medias %}
 					{% if media.marquee == 1 and media.statut == 1 %}
@@ -33,26 +43,4 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer">
-
-		<p>REG-NORD</p>
-		<p>N° SIRET : 33230527500056</p>
-		<a href="{{ path('contact') }}">Contactez-nous</a>
-		<p>Nous sommes ouverts du Lundi au Vendredi, de 9h à 12h30 et de 14h à 17h30</p>
-		<div>
-			<i class="fa fa-phone fa-1x icone" aria-hidden="true"></i>
-			03.27.88.33.41</div>
-		<div>
-			<i class="fa fa-envelope fa-1x icone" aria-hidden="true"></i>
-			contact@reg-nord.com</div>
-		<div>
-			<i class="fa fa-map-marker fa-1x icone" aria-hidden="true"></i>
-			340 avenue du 4 septembre, 59000 Douai</div>
-		<div>
-			<i class="fa fa-fax fa-1x icone" aria-hidden="true"></i>
-			03.00.00.00.00</div>
-
-
-	</div>
-
 </div>

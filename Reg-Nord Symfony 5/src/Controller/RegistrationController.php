@@ -15,11 +15,10 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("register", name="app_register")
+     * @Route("/register", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -47,7 +46,7 @@ class RegistrationController extends AbstractController
             );*/
         }
 
-        return $this->render('admin/registration/register.html.twig', [
+        return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

@@ -16,24 +16,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProduitController extends AbstractController
 {
     /**
-     * @Route("/", name="produit_index", methods={"GET", "POST"})
+     * @Route("/", name="produit_index", methods={"GET"})
      */
-    public function index(Request $request, ProduitRepository $produitRepository): Response
+    public function index(ProduitRepository $produitRepository): Response
     {
-
-        $search = new Produit();
-        $form = $this->createForm(\App\Form\RechercheType::class, $search);
-        $form->handleRequest($request);
-
-        $produit = $search->getNom();
-        $gamme = $search->getGammes();
-        $marque = $search->getMarques();
-
-        $result = $produitRepository->rechercheProduit($produit, $gamme, $marque);
-
         return $this->render('produit/index.html.twig', [
-            'form' => $form->createView(),
-            'produits' => $result,
+            'produits' => $produitRepository->findAll(),
         ]);
     }
 

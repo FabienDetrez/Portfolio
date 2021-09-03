@@ -127,7 +127,7 @@
 							{% for gamme in gammes %}
 								{% if gamme.statut == 1 %}
 									<div class="col-lg-4 col-md-6">
-										<a href="{{ path('gamme_index', {'id':gamme.id}) }}">
+										<a href="{{ path('produit_index', {'gamme':gamme.id}) }}">
 											<div class="single-service">
 												<i class="{{ gamme.logo }}"></i>
 												<h4>{{ gamme.nom }}</h4>

@@ -19,29 +19,6 @@ class ProduitRepository extends ServiceEntityRepository
         parent::__construct($registry, Produit::class);
     }
 
-    public function rechercheProduit($prod, $gamme, $marque){
-
-        $search = $this->createQueryBuilder('p');
-
-        if ($prod != null) {
-            $search->andWhere("p.nom = :nprod");
-            $search->setParameter("nprod", $prod);
-        }
-
-        if ($gamme != null) {
-            $search->andWhere("p.gammes = :gam");
-            $search->setParameter("gam", $gamme);
-        }
-
-        if ($marque != null) {
-            $search->andWhere("p.marques = :marq");
-            $search->setParameter("marq", $marque);
-        }
-
-        $search->orderBy("p.id", "ASC");
-        return $search->getQuery()->getResult();
-    }
-
     // /**
     //  * @return Produit[] Returns an array of Produit objects
     //  */

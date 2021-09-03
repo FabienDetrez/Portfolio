@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gamme
+{% endblock %}
+
+{% block stylesheets %}
+		<link rel="stylesheet" href="{{ asset("libs/css/formulaire.css") }}">
+{% endblock %}
+
+{% block body %}
+
+	<div class="titre">
+		<h1>Gammes</h1>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Texte</th>
+				<th>Logo</th>
+				<th>Statut</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for gamme in gammes %}
+				<tr>
+					<td>{{ gamme.nom }}</td>
+					<td>{{ gamme.texte }}</td>
+					<td><i class="{{ gamme.logo }}"></i></td>
+					<td>{{ gamme.statut ? 'Oui' : 'Non' }}</td>
+					<td>
+						<a href="{{ path('gamme_show', {'id': gamme.id}) }}" class="btn btn-primary">+ de détails</a>
+						<a href="{{ path('gamme_edit', {'id': gamme.id}) }}" class="btn btn-warning">Modifier</a>
+						{{ include('admin/gamme/_delete_form.html.twig') }}
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">pas de gamme trouvée</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="bouton">
+		<a href="{{ path('gamme_new') }}" class="btn btn-primary">Nouveau</a>
+	</div>
+
+{% endblock %}

@@ -20,7 +20,8 @@ class MediaType extends AbstractType
             ->add('texte')
             ->add('carousel')
             ->add('marquee')
-            ->add('produit')            
+            ->add('produit')
+            ->add('statut')
             ->add('gallerie')
             ->add('imageFile', FileType::class, array(
                 'required' => false
@@ -32,7 +33,6 @@ class MediaType extends AbstractType
                 'label' => 'Liste des produits',
                 'multiple' => false
             ))
-            ->add('statut')
         ;
     }
 

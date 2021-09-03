@@ -39,7 +39,6 @@
 					<td>
 						<a href="{{ path('media_show', {'id': medium.id}) }}" class="btn btn-primary">+ de détails</a>
 						<a href="{{ path('media_edit', {'id': medium.id}) }}" class="btn btn-warning">Modifier</a>
-						{{ include('admin/media/_delete_form.html.twig') }}
 					</td>
 				</tr>
 			{% else %}

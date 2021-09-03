@@ -15,6 +15,7 @@ class MarqueType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('statut')
             ->add('description')
             ->add('media', EntityType::class, array(
                 'class' => Media::class,
@@ -22,7 +23,6 @@ class MarqueType extends AbstractType
                 'label' => 'Medias',
                 'choice_label' => 'nom',
                 'multiple' => false))
-                ->add('statut')
         ;
     }
 

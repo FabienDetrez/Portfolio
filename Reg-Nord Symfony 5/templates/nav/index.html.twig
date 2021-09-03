@@ -21,7 +21,7 @@
 								{% for gamme in gammes %}
 									{% if gamme.statut == 1 %}
 
-										<a class="dropdown-item" href="{{ path('gamme_index', {'id':gamme.id}) }}">{{ gamme.nom }}</a>
+										<a class="dropdown-item" href="{{ path('produit_index', {'gamme':gamme.id}) }}">{{ gamme.nom }}</a>
 									{% endif %}
 
 								{% endfor %}
